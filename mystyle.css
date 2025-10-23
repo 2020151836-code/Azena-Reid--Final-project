@@ -435,3 +435,20 @@ body {
     flex-direction: column;
   }
 }
+
+.featured-image-link {
+  display: block;
+  max-width: 700px;
+  margin: 30px auto;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featured-image-link:hover {
+  transform: scale(1.02);
+}
+
+.featured-image-link:hover .featured-image {
+  box-shadow: 0 15px 50px rgba(90, 200, 250, 0.4);
+}
+
