@@ -150,3 +150,28 @@ body {
   color: #a88cff;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.card {
+  display: block; /* allows the link to act as a card */
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #c9a8ff;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #ccc;
+}
