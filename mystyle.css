@@ -551,4 +551,47 @@ body::before {
 }
 
 
+/* === 🎬 Subpage Cinematic Effects === */
+
+/* Smooth fade for page elements */
+.fade-in {
+  animation: fadeInContent 2s ease-in-out;
+}
+
+/* Neat, centered image style */
+.smooth-image {
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.smooth-image:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 50px rgba(90, 200, 250, 0.45);
+}
+
+/* Consistent header alignment and fade */
+.content-header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeInContent 3s ease-in-out 0.5s forwards;
+}
+
+.content-header h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, #9f8cff, #5ac8fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.content-header p {
+  color: #c8bfff;
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
 
