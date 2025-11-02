@@ -3,8 +3,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Course - Fundamentals of Computing</title>
-  <link rel="stylesheet" href="mystyle.css"> <!-- use the same CSS file for consistency -->
+  <title>Projects - Fundamentals of Computing</title>
+  <link rel="stylesheet" href="mystyle.css">
+  <style>
+    /* Additional styles for the projects page */
+    .projects-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    
+    .project-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-card h3 {
+      color: #2c3e50;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 0.5rem;
+    }
+    
+    /* SDLC Animation Styles */
+    .sdlc-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+    }
+    
+    .waterfall {
+      position: relative;
+      width: 700px;
+      height: 400px;
+    }
+
+    .phase {
+      position: absolute;
+      width: 150px;
+      height: 70px;
+      border: 3px solid #ccc;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      background: white;
+      opacity: 0.3;
+      color: transparent;
+      transition: all 0.8s ease;
+      font-size: 0.9rem;
+    }
+
+    .phase.active {
+      opacity: 1;
+      color: black;
+      box-shadow: 0 0 25px rgba(9,132,227,0.6);
+      border-color: #0984e3;
+    }
+
+    .arrow {
+      position: absolute;
+      width: 80px;
+      height: 2px;
+      background: #ccc;
+      transition: background 0.6s ease;
+    }
+
+    .arrow.active {
+      background: #0984e3;
+      box-shadow: 0 0 10px rgba(9,132,227,0.8);
+    }
+
+    /* Positioning like the diagram */
+    .req { top: 30px; left: 50px; }
+    .des { top: 120px; left: 170px; }
+    .dev { top: 210px; left: 290px; }
+    .test { top: 300px; left: 410px; }
+    .dep { top: 390px; left: 530px; }
+    .maint { top: 480px; left: 650px; }
+
+    /* Arrow connections (diagonal lines) */
+    .arrow1 { top: 80px; left: 180px; transform: rotate(30deg); }
+    .arrow2 { top: 170px; left: 300px; transform: rotate(30deg); }
+    .arrow3 { top: 260px; left: 420px; transform: rotate(30deg); }
+    .arrow4 { top: 350px; left: 540px; transform: rotate(30deg); }
+    .arrow5 { top: 440px; left: 660px; transform: rotate(30deg); }
+    
+    /* BMI Button */
+    .bmi-button {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .bmi-button:hover {
+      background: #2980b9;
+      transform: translateY(-50%) scale(1.05);
+    }
+    
+    .bmi-button i {
+      font-size: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .bmi-button {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin: 1rem auto;
+        display: inline-flex;
+      }
+      
+      .waterfall {
+        width: 100%;
+        height: 350px;
+      }
+      
+      .phase {
+        width: 120px;
+        height: 60px;
+        font-size: 0.8rem;
+      }
+      
+      .req { top: 20px; left: 10px; }
+      .des { top: 100px; left: 120px; }
+      .dev { top: 180px; left: 230px; }
+      .test { top: 260px; left: 340px; }
+      .dep { top: 340px; left: 450px; }
+      .maint { top: 420px; left: 560px; }
+
+      .arrow1 { top: 70px; left: 100px; transform: rotate(30deg); }
+      .arrow2 { top: 150px; left: 210px; transform: rotate(30deg); }
+      .arrow3 { top: 230px; left: 320px; transform: rotate(30deg); }
+      .arrow4 { top: 310px; left: 430px; transform: rotate(30deg); }
+      .arrow5 { top: 390px; left: 540px; transform: rotate(30deg); }
+    }
+  </style>
 </head>
 <body>
 
@@ -18,31 +178,83 @@
     <aside class="sidebar">
       <h2>Fundamentals of Computing</h2>
       <nav class="sidebar-nav">
-        <a href="index.html" class="active">Course</a>
+        <a href="index.html">Course</a>
         <a href="concepts.html">Concepts</a>
         <a href="database.html">Database</a>
         <a href="documentation.html">Documentation</a>
-        <a href="projects.html">Projects</a>
+        <a href="projects.html" class="active">Projects</a>
         <a href="devteam.html">Dev Team</a>
       </nav>
     </aside>
 
-<!-- Main Content Area -->
+    <!-- Main Content Area -->
     <main class="main-content fade-in">
-
       <header class="content-header">
-        <h1>Software Life Cycle</h1>
-        <p>The cost-effective and time-efficient process that development teams use to 
-          design and build high-quality software.</p>
+        <h1>Projects</h1>
+        <p>Explore the projects completed in this course.</p>
       </header>
 
-       <footer class="subpage-footer">
+      <div class="projects-container">
+        <!-- SDLC Project -->
+        <div class="project-card">
+          <h3>Software Development Life Cycle (SDLC)</h3>
+          <p>The Software Development Life Cycle (SDLC) is a systematic process for building software that ensures quality and correctness. This diagram illustrates the key phases of the SDLC.</p>
+          
+          <div class="sdlc-container">
+            <div class="waterfall">
+              <div class="phase req">Requirements</div>
+              <div class="arrow arrow1"></div>
+              <div class="phase des">Design</div>
+              <div class="arrow arrow2"></div>
+              <div class="phase dev">Development</div>
+              <div class="arrow arrow3"></div>
+              <div class="phase test">Testing</div>
+              <div class="arrow arrow4"></div>
+              <div class="phase dep">Deployment</div>
+              <div class="arrow arrow5"></div>
+              <div class="phase maint">Maintenance</div>
+            </div>
+          </div>
+        </div>
+        
+  
+
+      <!-- BMI Calculator Button -->
+      <button class="bmi-button" onclick="window.location.href='BMI.html'">
+        <i>⚖️</i> BMI Calculator
+      </button>
+
+      <footer class="subpage-footer">
         © Powered by UB — 2025
       </footer>
     </main>
- 
+  </div>
+
+  <script>
+    // SDLC Animation Script
+    const phases = document.querySelectorAll('.phase');
+    const arrows = document.querySelectorAll('.arrow');
+    let index = 0;
+
+    function animateWaterfall() {
+      // Reset all
+      phases.forEach(p => p.classList.remove('active'));
+      arrows.forEach(a => a.classList.remove('active'));
+
+      // Activate current phase
+      for (let i = 0; i <= index; i++) {
+        phases[i].classList.add('active');
+        if (i > 0) arrows[i - 1].classList.add('active');
+      }
+
+      index++;
+      if (index >= phases.length) index = 0;
+    }
+
+    // Run animation
+    animateWaterfall();
+    setInterval(animateWaterfall, 2000);
+  </script>
 
 </body>
-
-
 </html>
