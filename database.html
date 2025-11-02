@@ -61,14 +61,10 @@
       <!-- ✅ Centered Video Section -->
       <div class="video-container">
         <div class="video-wrapper">
-          <!-- Poster Image -->
-          <img src="SQL.png" 
-              alt="Database Preview" 
-              id="video-poster">
-
+     
           <!-- Google Drive Video -->
           <iframe id="database-video"
-                  src="https://drive.google.com/file/d/1ASOPYIBtHhUljLs8uKOdebQ-ea8nPlgh/preview"
+                  src="https://drive.google.com/file/d/1ASOPYIBtHhUljLs8uKOdebQ-ea8nPlgh/view?usp=sharing"
                   width="640" height="360"
                   allow="autoplay"
                   style="border:none;">
@@ -82,12 +78,7 @@
     </main>
   </div>
 
-  <script>
-    const poster = document.getElementById('video-poster');
-    poster.addEventListener('click', () => {
-      poster.style.display = 'none';
-      document.getElementById('database-video').src += '?autoplay=1';
-    });
-  </script>
+ 
 </body>
 </html>
+
