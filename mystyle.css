@@ -555,3 +555,11 @@ body::before {
 }
 
 
+.sdlc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  transform: translateX(-60px); /* moves it 60px left visually */
+}
+
