@@ -208,7 +208,7 @@
               <div class="arrow arrow1"></div>
               <div class="phase des">Requirements</div>
               <div class="arrow arrow2"></div>
-              <div class="phase dev">Designt</div>
+              <div class="phase dev">Design</div>
               <div class="arrow arrow3"></div>
               <div class="phase test">Implementation</div>
               <div class="arrow arrow4"></div>
@@ -232,30 +232,10 @@
   </div>
 
   <script>
-    // SDLC Animation Script
-    const phases = document.querySelectorAll('.phase');
-    const arrows = document.querySelectorAll('.arrow');
-    let index = 0;
+   <script src="sdlc-animation.js"></script>
 
-    function animateWaterfall() {
-      // Reset all
-      phases.forEach(p => p.classList.remove('active'));
-      arrows.forEach(a => a.classList.remove('active'));
-
-      // Activate current phase
-      for (let i = 0; i <= index; i++) {
-        phases[i].classList.add('active');
-        if (i > 0) arrows[i - 1].classList.add('active');
-      }
-
-      index++;
-      if (index >= phases.length) index = 0;
-    }
-
-    // Run animation
-    animateWaterfall();
-    setInterval(animateWaterfall, 2000);
   </script>
 
 </body>
 </html>
+
