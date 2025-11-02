@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Waterfall Model</title>
+<style>
+  body {
+    background: #ffffff;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .waterfall {
+    position: relative;
+    width: 800px;
+    height: 500px;
+  }
+
+  .phase {
+    position: absolute;
+    width: 180px;
+    height: 80px;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    background: white;
+    opacity: 0.3;
+    color: transparent;
+    transition: all 0.8s ease;
+  }
+
+  .phase.active {
+    opacity: 1;
+    color: black;
+    box-shadow: 0 0 25px rgba(9,132,227,0.6);
+    border-color: #0984e3;
+  }
+
+  .arrow {
+    position: absolute;
+    width: 100px;
+    height: 2px;
+    background: #ccc;
+    transition: background 0.6s ease;
+  }
+
+  .arrow.active {
+    background: #0984e3;
+    box-shadow: 0 0 10px rgba(9,132,227,0.8);
+  }
+
+  /* Positioning like the diagram */
+  .req { top: 40px; left: 60px; }
+  .des { top: 140px; left: 200px; }
+  .dev { top: 240px; left: 340px; }
+  .test { top: 340px; left: 480px; }
+  .dep { top: 440px; left: 620px; }
+  .maint { top: 540px; left: 760px; }
+
+  /* Arrow connections (diagonal lines) */
+  .arrow1 { top: 100px; left: 220px; transform: rotate(30deg); }
+  .arrow2 { top: 200px; left: 360px; transform: rotate(30deg); }
+  .arrow3 { top: 300px; left: 500px; transform: rotate(30deg); }
+  .arrow4 { top: 400px; left: 640px; transform: rotate(30deg); }
+  .arrow5 { top: 500px; left: 780px; transform: rotate(30deg); }
+
+</style>
+</head>
+<body>
+
+<div class="waterfall">
+  <div class="phase req">Requirements</div>
+  <div class="arrow arrow1"></div>
+  <div class="phase des">Design</div>
+  <div class="arrow arrow2"></div>
+  <div class="phase dev">Development</div>
+  <div class="arrow arrow3"></div>
+  <div class="phase test">Testing</div>
+  <div class="arrow arrow4"></div>
+  <div class="phase dep">Deployment</div>
+  <div class="arrow arrow5"></div>
+  <div class="phase maint">Maintenance</div>
+</div>
+
+<script>
+  const phases = document.querySelectorAll('.phase');
+  const arrows = document.querySelectorAll('.arrow');
+  let index = 0;
+
+  function animateWaterfall() {
+    // Reset all
+    phases.forEach(p => p.classList.remove('active'));
+    arrows.forEach(a => a.classList.remove('active'));
+
+    // Activate current phase
+    for (let i = 0; i <= index; i++) {
+      phases[i].classList.add('active');
+      if (i > 0) arrows[i - 1].classList.add('active');
+    }
+
+    index++;
+    if (index >= phases.length) index = 0;
+  }
+
+  // Run animation
+  animateWaterfall();
+  setInterval(animateWaterfall, 2000);
+</script>
+
+</body>
+</html>
