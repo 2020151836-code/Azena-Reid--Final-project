@@ -455,8 +455,7 @@ body {
   }
 }
 
-
-/* === 🎥 CINEMATIC ANIMATED BACKGROUND === */
+/* === 🎥 CINEMATIC BACKGROUND (No Animation) === */
 #bg-video {
   position: fixed;
   top: 0;
@@ -466,10 +465,10 @@ body {
   object-fit: cover;
   z-index: -2;
   filter: brightness(0.8) blur(2px);
-  opacity: 0;
-  animation: fadeIn 3s ease-in-out forwards;
+  opacity: 1; /* Instantly visible */
 }
 
+/* Overlay tint */
 body::before {
   content: "";
   position: fixed;
@@ -479,36 +478,20 @@ body::before {
   height: 100%;
   background: rgba(10, 0, 30, 0.45);
   z-index: -1;
-  animation: fadeOverlay 4s ease-in-out forwards;
+  opacity: 1; /* Instantly visible */
 }
 
+/* Main content */
 .content {
   position: relative;
   z-index: 1;
   color: #fff;
   text-align: center;
   min-height: 100vh;
-  animation: fadeInContent 3s ease-in-out 1s forwards;
-  opacity: 0;
+  opacity: 1; /* Always visible */
 }
 
-/* === Animations for Cinematic Effect === */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeOverlay {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeInContent {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* === ✨ Floating + Glow Card Animation === */
+/* === ✨ Floating + Glow Card Animation (kept subtle) === */
 .card {
   background: rgba(255, 255, 255, 0.08);
   border-radius: 12px;
@@ -516,7 +499,7 @@ body::before {
   color: #fff;
   text-decoration: none;
   transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-  animation: floatCard 6s ease-in-out infinite;
+  animation: floatCard 6s ease-in-out infinite, glowPulse 8s ease-in-out infinite;
 }
 
 /* Gentle floating motion */
@@ -536,7 +519,7 @@ body::before {
   box-shadow: 0 0 25px rgba(173, 216, 230, 0.4);
 }
 
-/* Optional subtle breathing light pulse for ambient glow */
+/* Ambient light pulse */
 @keyframes glowPulse {
   0%, 100% {
     box-shadow: 0 0 15px rgba(173, 216, 230, 0.15);
@@ -546,19 +529,11 @@ body::before {
   }
 }
 
-.card {
-  animation: floatCard 6s ease-in-out infinite, glowPulse 8s ease-in-out infinite;
-}
-
-
-/* === 🎬 Subpage Cinematic Effects === */
-
-/* Smooth fade for page elements */
+/* === 🎬 Subpage Styles (No fade) === */
 .fade-in {
-  animation: fadeInContent 2s ease-in-out;
+  opacity: 1;
 }
 
-/* Neat, centered image style */
 .smooth-image {
   border-radius: 15px;
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -573,25 +548,10 @@ body::before {
   box-shadow: 0 15px 50px rgba(90, 200, 250, 0.45);
 }
 
-/* Consistent header alignment and fade */
 .content-header {
   text-align: center;
   margin-bottom: 40px;
-  animation: fadeInContent 3s ease-in-out 0.5s forwards;
-}
-
-.content-header h1 {
-  font-size: 2.5rem;
-  background: linear-gradient(to right, #9f8cff, #5ac8fa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 10px;
-}
-
-.content-header p {
-  color: #c8bfff;
-  font-size: 1.2rem;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 
