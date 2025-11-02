@@ -22,6 +22,7 @@
       transition: transform 0.3s ease;
       backdrop-filter: blur(10px); /* Glass effect */
       border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-left: -50px; /* Move content more to the left */
     }
     
     .project-card:hover {
@@ -42,21 +43,22 @@
     /* SDLC Animation Styles */
     .sdlc-container {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start; /* Align to left */
       align-items: center;
       margin: 2rem 0;
     }
     
     .waterfall {
       position: relative;
-      width: 700px;
-      height: 400px;
+      width: 600px; /* Reduced width */
+      height: 350px; /* Reduced height */
+      margin-left: -30px; /* Move diagram further left */
     }
 
     .phase {
       position: absolute;
-      width: 150px;
-      height: 70px;
+      width: 130px; /* Slightly smaller */
+      height: 60px; /* Slightly smaller */
       border: 3px solid #ccc;
       border-radius: 20px;
       display: flex;
@@ -68,7 +70,7 @@
       opacity: 0.3;
       color: transparent;
       transition: all 0.8s ease;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .phase.active {
@@ -81,7 +83,7 @@
 
     .arrow {
       position: absolute;
-      width: 80px;
+      width: 70px; /* Shorter arrows */
       height: 2px;
       background: #ccc;
       transition: background 0.6s ease;
@@ -92,20 +94,20 @@
       box-shadow: 0 0 10px rgba(9,132,227,0.8);
     }
 
-    /* Positioning like the diagram */
-    .req { top: 30px; left: 50px; }
-    .des { top: 120px; left: 170px; }
-    .dev { top: 210px; left: 290px; }
-    .test { top: 300px; left: 410px; }
-    .dep { top: 390px; left: 530px; }
-    .maint { top: 480px; left: 650px; }
+    /* Repositioned to be more compact and left-aligned */
+    .req { top: 30px; left: 20px; }
+    .des { top: 110px; left: 120px; }
+    .dev { top: 190px; left: 220px; }
+    .test { top: 270px; left: 320px; }
+    .dep { top: 350px; left: 420px; }
+    .maint { top: 430px; left: 520px; }
 
     /* Arrow connections (diagonal lines) */
-    .arrow1 { top: 80px; left: 180px; transform: rotate(30deg); }
-    .arrow2 { top: 170px; left: 300px; transform: rotate(30deg); }
-    .arrow3 { top: 260px; left: 420px; transform: rotate(30deg); }
-    .arrow4 { top: 350px; left: 540px; transform: rotate(30deg); }
-    .arrow5 { top: 440px; left: 660px; transform: rotate(30deg); }
+    .arrow1 { top: 75px; left: 120px; transform: rotate(30deg); }
+    .arrow2 { top: 155px; left: 220px; transform: rotate(30deg); }
+    .arrow3 { top: 235px; left: 320px; transform: rotate(30deg); }
+    .arrow4 { top: 315px; left: 420px; transform: rotate(30deg); }
+    .arrow5 { top: 395px; left: 520px; transform: rotate(30deg); }
     
     /* BMI Button */
     .bmi-button {
@@ -138,7 +140,25 @@
       font-size: 1rem;
     }
     
+    /* Adjust main content to use more space */
+    .main-content {
+      margin-left: 0;
+      padding-left: 0;
+    }
+    
+    .content-header {
+      margin-left: -50px;
+    }
+    
     @media (max-width: 768px) {
+      .project-card {
+        margin-left: 0;
+      }
+      
+      .content-header {
+        margin-left: 0;
+      }
+      
       .bmi-button {
         position: relative;
         top: auto;
@@ -150,27 +170,28 @@
       
       .waterfall {
         width: 100%;
-        height: 350px;
+        height: 300px;
+        margin-left: 0;
       }
       
       .phase {
-        width: 120px;
-        height: 60px;
-        font-size: 0.8rem;
+        width: 100px;
+        height: 50px;
+        font-size: 0.75rem;
       }
       
       .req { top: 20px; left: 10px; }
-      .des { top: 100px; left: 120px; }
-      .dev { top: 180px; left: 230px; }
-      .test { top: 260px; left: 340px; }
-      .dep { top: 340px; left: 450px; }
-      .maint { top: 420px; left: 560px; }
+      .des { top: 90px; left: 90px; }
+      .dev { top: 160px; left: 170px; }
+      .test { top: 230px; left: 250px; }
+      .dep { top: 300px; left: 330px; }
+      .maint { top: 370px; left: 410px; }
 
-      .arrow1 { top: 70px; left: 100px; transform: rotate(30deg); }
-      .arrow2 { top: 150px; left: 210px; transform: rotate(30deg); }
-      .arrow3 { top: 230px; left: 320px; transform: rotate(30deg); }
-      .arrow4 { top: 310px; left: 430px; transform: rotate(30deg); }
-      .arrow5 { top: 390px; left: 540px; transform: rotate(30deg); }
+      .arrow1 { top: 65px; left: 80px; transform: rotate(30deg); width: 60px; }
+      .arrow2 { top: 135px; left: 160px; transform: rotate(30deg); width: 60px; }
+      .arrow3 { top: 205px; left: 240px; transform: rotate(30deg); width: 60px; }
+      .arrow4 { top: 275px; left: 320px; transform: rotate(30deg); width: 60px; }
+      .arrow5 { top: 345px; left: 400px; transform: rotate(30deg); width: 60px; }
     }
   </style>
 </head>
@@ -204,15 +225,15 @@
 
           <div class="sdlc-container">
             <div class="waterfall">
-              <div class="phase req">Planning</div>
+              <div class="phase req">Requirements</div>
               <div class="arrow arrow1"></div>
-              <div class="phase des">Requirements</div>
+              <div class="phase des">Design</div>
               <div class="arrow arrow2"></div>
-              <div class="phase dev">Designt</div>
+              <div class="phase dev">Development</div>
               <div class="arrow arrow3"></div>
-              <div class="phase test">Implementation</div>
+              <div class="phase test">Testing</div>
               <div class="arrow arrow4"></div>
-              <div class="phase dep">Testing & Integration</div>
+              <div class="phase dep">Deployment</div>
               <div class="arrow arrow5"></div>
               <div class="phase maint">Maintenance</div>
             </div>
@@ -259,4 +280,3 @@
 
 </body>
 </html>
-
