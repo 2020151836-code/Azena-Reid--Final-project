@@ -4,34 +4,186 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Database</title>
-  <link rel="stylesheet" href="mystyle.css">
   <style>
-    /* Center the video wrapper */
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      background-color: #0a192f;
+    }
+
+    /* Background video */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    /* Layout */
+    .subpage-layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background-color: rgba(10, 25, 47, 0.85);
+      padding: 30px 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar h2 {
+      color: #64ffda;
+      margin-bottom: 30px;
+      font-size: 1.4rem;
+      text-align: center;
+      border-bottom: 1px solid #64ffda;
+      padding-bottom: 10px;
+    }
+
+    .sidebar-nav {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sidebar-nav a {
+      color: #ccd6f6;
+      text-decoration: none;
+      padding: 12px 15px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .sidebar-nav a:hover {
+      background-color: rgba(100, 255, 218, 0.1);
+      color: #64ffda;
+    }
+
+    .sidebar-nav a.active {
+      background-color: rgba(100, 255, 218, 0.2);
+      color: #64ffda;
+    }
+
+    /* Main content */
+    .main-content {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .content-header h1 {
+      font-size: 2.5rem;
+      color: #64ffda;
+      margin-bottom: 10px;
+    }
+
+    .content-header p {
+      font-size: 1.2rem;
+      color: #ccd6f6;
+    }
+
+    /* Video container */
     .video-container {
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 20px;
+      padding: 20px;
     }
 
     .video-wrapper {
       position: relative;
-      width: 640px;
-      height: 360px;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      overflow: hidden;
     }
 
-    .video-wrapper img {
-      position: absolute;
+    .video-wrapper iframe {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      cursor: pointer;
+      height: 450px;
+      border: none;
+      display: block;
+    }
+
+    /* Footer */
+    .subpage-footer {
+      text-align: center;
+      padding: 20px;
+      color: #8892b0;
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .subpage-layout {
+        flex-direction: column;
+      }
+      
+      .sidebar {
+        width: 100%;
+        padding: 20px;
+      }
+      
+      .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      
+      .sidebar-nav a {
+        margin-bottom: 0;
+      }
+      
+      .main-content {
+        padding: 20px;
+      }
+      
+      .content-header h1 {
+        font-size: 2rem;
+      }
+      
+      .video-wrapper iframe {
+        height: 300px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎥 Animated Background -->
+  <!-- Background Video -->
   <video autoplay muted loop id="bg-video">
     <source src="light.mp4" type="video/mp4">
   </video>
@@ -41,9 +193,9 @@
     <aside class="sidebar">
       <h2>Fundamentals of Computing</h2>
       <nav class="sidebar-nav">
-        <a href="index.html" class="active">Course</a>
+        <a href="index.html">Course</a>
         <a href="concepts.html">Concepts</a>
-        <a href="database.html">Database</a>
+        <a href="database.html" class="active">Database</a>
         <a href="documentation.html">Documentation</a>
         <a href="projects.html">Projects</a>
         <a href="devteam.html">Dev Team</a>
@@ -52,24 +204,18 @@
 
     <!-- Main Content Area -->
     <main class="main-content fade-in">
-
       <header class="content-header">
-        <h1>Data Base</h1>
+        <h1>Database</h1>
         <p>Basic SQLs.</p>
       </header>
 
-      <!-- ✅ Centered Video Section -->
+      <!-- Centered Video Section -->
       <div class="video-container">
         <div class="video-wrapper">
-     
           <!-- Google Drive Video -->
-         
-            <iframe id="database-video"
-        src="https://drive.google.com/file/d/1ASOPYIBtHhUljLs8uKOdebQ-ea8
-
-                  width="640" height="360"
-                  allow="autoplay"
-                  style="border:none;">
+          <iframe id="database-video" 
+                  src="https://drive.google.com/file/d/1ASOPYIBtHhUljLs8uKOdebQ-ea8nPlgh/preview" 
+                  allow="autoplay">
           </iframe>
         </div>
       </div>
@@ -80,9 +226,5 @@
     </main>
   </div>
 
- 
 </body>
 </html>
-
-
-
