@@ -35,22 +35,30 @@
         <p>Basic SQLs.</p>
       </header>
 
-<!-- Featured Video from Google Drive -->
-<iframe src="https://drive.google.com/file/d/1-eMYjSs0-j6Q7m3b43G-zwpocuIIYHPA/preview" 
-        width="640" 
-        height="360" 
-        allow="autoplay" 
-        class="featured-video">
-</iframe>
 
-<!-- Description / Links -->
-<div class="content-text">
-  <p>Watch the video above on databases.</p>
-  <p>
-    <a href="https://drive.google.com/file/d/1-eMYjSs0-j6Q7m3b43G-zwpocuIIYHPA/view?usp=drive_link" 
-       target="_blank">Open video in Google Drive</a>
-  </p>
+      <div class="video-wrapper" style="position: relative; width: 640px; height: 360px;">
+  <!-- Poster Image -->
+  <img src="SQL.png" 
+       alt="Database Preview" 
+       id="video-poster"
+       style="position:absolute; width:100%; height:100%; object-fit:cover; cursor:pointer;">
+
+  <!-- Google Drive Video -->
+  <iframe id="database-video"
+          src="https://drive.google.com/file/d/1ASOPYIBtHhUljLs8uKOdebQ-ea8nPlgh/preview"
+          width="640" height="360"
+          allow="autoplay"
+          style="border: none;">
+  </iframe>
 </div>
+
+<script>
+  const poster = document.getElementById('video-poster');
+  poster.addEventListener('click', () => {
+    poster.style.display = 'none'; // hides the image
+    document.getElementById('database-video').src += '?autoplay=1'; // plays the video
+  });
+</script>
 
 
       <footer class="subpage-footer">
@@ -61,5 +69,6 @@
 
 </body>
 </html>
+
 
 
