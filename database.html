@@ -4,7 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Database</title>
-  <link rel="stylesheet" href="mystyle.css"> <!-- use the same CSS file for consistency -->
+  <link rel="stylesheet" href="mystyle.css">
+  <style>
+    /* Center the video wrapper */
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 640px;
+      height: 360px;
+    }
+
+    .video-wrapper img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
@@ -35,23 +58,23 @@
         <p>Basic SQLs.</p>
       </header>
 
+      <!-- ✅ Centered Video Section -->
+      <div class="video-container">
+        <div class="video-wrapper">
+          <!-- Poster Image -->
+          <img src="SQL.png" 
+              alt="Database Preview" 
+              id="video-poster">
 
-      <div class="video-wrapper" style="position: relative; width: 640px; height: 360px;">
-  <!-- Poster Image -->
-  <img src="SQL.png" 
-       alt="Database Preview" 
-       id="video-poster"
-       style="position:absolute; width:100%; height:100%; object-fit:cover; cursor:pointer;">
-
-  <!-- Google Drive Video -->
-  <iframe id="database-video"
-          src="https://drive.google.com/file/d/1ASOPYIBtHhUljLs8uKOdebQ-ea8nPlgh/preview"
-          width="640" height="360"
-          allow="autoplay"
-          style="border: none;">
-  </iframe>
-</div>
-
+          <!-- Google Drive Video -->
+          <iframe id="database-video"
+                  src="https://drive.google.com/file/d/1ASOPYIBtHhUljLs8uKOdebQ-ea8nPlgh/preview"
+                  width="640" height="360"
+                  allow="autoplay"
+                  style="border:none;">
+          </iframe>
+        </div>
+      </div>
 
       <footer class="subpage-footer">
         © Powered by UB — 2025
@@ -59,9 +82,12 @@
     </main>
   </div>
 
+  <script>
+    const poster = document.getElementById('video-poster');
+    poster.addEventListener('click', () => {
+      poster.style.display = 'none';
+      document.getElementById('database-video').src += '?autoplay=1';
+    });
+  </script>
 </body>
 </html>
-
-
-
-
