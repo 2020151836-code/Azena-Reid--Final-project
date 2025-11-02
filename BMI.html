@@ -15,7 +15,7 @@
 			padding: 0;
 			text-align: center;
 			font-family: Century Gothic;
-			background-image: linear-gradient(120deg,#fff, #DAF7A6, #FFC300,#C70039,#900C3F,#581845 );
+			background-image: linear-gradient(#000000,#E056FD );
 			min-height: 100vh;
 		}
 		#center{
@@ -63,7 +63,7 @@
 				margin-top: 10px;
 				border: none;
 				color: #fff;
-				background-image: linear-gradient(120deg,#DAF7A6, #FFC300,#FF5733,#C70039,#900C3F,#581845 );
+				background-image: linear-gradient(#000000,#E056FD );
 				width: 150px;
 				padding: 10px;
 				border-radius: 30px;
@@ -76,7 +76,7 @@
 			#info{
 				font-size: 12px;
 				font-family: Century Gothic;
-				color : red;
+				color : black;
 
 
 			}
@@ -92,19 +92,19 @@
 			var bmio=(bmi.toFixed(2));
 			
 			if(bmio < 18.5) {
-				document.getElementById("result").innerHTML="Your BMI is " + bmio + " You need food!";
+				document.getElementById("result").innerHTML="Your BMI is " + bmio + " Weight Category: Underweight";
 			}
 			
 			else if (bmio >= 18.5 && bmio < 24.9) {
-				document.getElementById("result").innerHTML="Your BMI is " + bmio + " Healthy Squad where you at?";
+				document.getElementById("result").innerHTML="Your BMI is " + bmio + " Weight Category: Healthy";
 			}
 			
 			else if ( bmio >= 25 && bmio < 29.9) {
-				document.getElementById("result").innerHTML="Your BMI is " + bmio + " Next time I suggest you pickup the apple";
+				document.getElementById("result").innerHTML="Your BMI is " + bmio + " Weight Category: Overweight";
 			}
 			
 			else if ( bmio > 30) {
-				document.getElementById("result").innerHTML="Your BMI is " + bmio + " So..When is your funeral?";
+				document.getElementById("result").innerHTML="Your BMI is " + bmio + " Weight Category: Obese";
 			}
 
 			
