@@ -5,150 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects</title>
   <link rel="stylesheet" href="mystyle.css">
-  <style>
-    /* Additional styles for the projects page */
-    .projects-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-top: 1.5rem;
-    }
-    
-    .project-card {
-      background: rgba(255, 255, 255, 0.1); /* Transparent background */
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      backdrop-filter: blur(10px); /* Glass effect */
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .project-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .project-card h3 {
-      color: white;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 0.5rem;
-    }
-    
-    .project-card p {
-      color: rgba(255, 255, 255, 0.9);
-    }
-    
-    /* SDLC Animation Styles */
-    .sdlc-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 2rem 0;
-    }
-    
-    .waterfall {
-      position: relative;
-      width: 700px;
-      height: 400px;
-    }
 
-    .phase {
-      position: absolute;
-      width: 150px;
-      height: 70px;
-      border: 3px solid #ccc;
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: bold;
-      background: rgba(255, 255, 255, 0.1); /* Transparent background */
-      backdrop-filter: blur(5px);
-      opacity: 0.3;
-      color: transparent;
-      transition: all 0.8s ease;
-      font-size: 0.9rem;
-    }
+<style>
 
-    .phase.active {
-      opacity: 1;
-      color: white;
-      box-shadow: 0 0 25px rgba(9,132,227,0.6);
-      border-color: #0984e3;
-      background: rgba(255, 255, 255, 0.2);
-    }
+/* --------------------------------------------------
+   SDLC DIAGRAM
+-------------------------------------------------- */
+.sdlc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
 
-    .arrow {
-      position: absolute;
-      width: 80px;
-      height: 2px;
-      background: #ccc;
-      transition: background 0.6s ease;
-    }
+.waterfall {
+  position: relative;
+  width: 700px;
+  height: 400px;
+}
 
-    .arrow.active {
-      background: #0984e3;
-      box-shadow: 0 0 10px rgba(9,132,227,0.8);
-    }
+/* SDLC Phase Boxes */
+.phase {
+  position: absolute;
+  width: 150px;
+  height: 70px;
+  border: 3px solid #ccc;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  opacity: 0.3;
+  color: transparent;
+  font-size: 0.9rem;
+  transition: all 0.8s ease;
+}
 
-    /* Positioning like the diagram */
-    .req { top: 30px; left: 50px; }
-    .des { top: 120px; left: 170px; }
-    .dev { top: 210px; left: 290px; }
-    .test { top: 300px; left: 410px; }
-    .dep { top: 390px; left: 530px; }
-    .maint { top: 480px; left: 650px; }
+.phase.active {
+  opacity: 1;
+  color: white;
+  border-color: #0984e3;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 25px rgba(9,132,227,0.6);
+}
 
-    /* Arrow connections (diagonal lines) */
-    .arrow1 { top: 80px; left: 180px; transform: rotate(30deg); }
-    .arrow2 { top: 170px; left: 300px; transform: rotate(30deg); }
-    .arrow3 { top: 260px; left: 420px; transform: rotate(30deg); }
-    .arrow4 { top: 350px; left: 540px; transform: rotate(30deg); }
-    .arrow5 { top: 440px; left: 660px; transform: rotate(30deg); }
-    
-    /* BMI Button */
-    .bmi-button {
-      position: fixed;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #3498db;
-      color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 10px 16px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    
-    .bmi-button:hover {
-      background: #E056FD;
-      transform: translateY(-50%) scale(1.05);
-    }
-    
-    .bmi-button i {
-      font-size: 1rem;
-    }
-/* Project Buttons under BMI */
+/* SDLC Arrow Lines */
+.arrow {
+  position: absolute;
+  width: 80px;
+  height: 2px;
+  background: #ccc;
+  transition: background 0.6s ease;
+}
+
+.arrow.active {
+  background: #0984e3;
+  box-shadow: 0 0 10px rgba(9,132,227,0.8);
+}
+
+/* SDLC Positioning */
+.req { top: 30px; left: 50px; }
+.des { top: 120px; left: 170px; }
+.dev { top: 210px; left: 290px; }
+.test { top: 300px; left: 410px; }
+.dep { top: 390px; left: 530px; }
+.maint { top: 480px; left: 650px; }
+
+/* Arrow Lines */
+.arrow1 { top: 80px; left: 180px; transform: rotate(30deg); }
+.arrow2 { top: 170px; left: 300px; transform: rotate(30deg); }
+.arrow3 { top: 260px; left: 420px; transform: rotate(30deg); }
+.arrow4 { top: 350px; left: 540px; transform: rotate(30deg); }
+.arrow5 { top: 440px; left: 660px; transform: rotate(30deg); }
+
+/* --------------------------------------------------
+   RIGHT-SIDE UI BUTTONS (BMI + PROJECT BUTTON LIST)
+-------------------------------------------------- */
+
+/* BMI Button */
+.bmi-button {
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bmi-button:hover {
+  background: #E056FD;
+  transform: scale(1.05);
+}
+
+.bmi-button i {
+  font-size: 1rem;
+}
+
+/* Project Button List (Under BMI) */
 #project-buttons {
   position: fixed;
-  top: 62%;
+  top: 120px;
   right: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  z-index: 1000;
+  z-index: 9999;
 }
 
 .project-button {
+  width: 180px;
   background: #3498db;
   color: white;
   border: none;
@@ -160,9 +138,8 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 180px;
+  align-items: center;
 }
 
 .project-button:hover {
@@ -170,44 +147,57 @@
   transform: scale(1.05);
 }
 
+/* --------------------------------------------------
+   RESPONSIVE (MOBILE)
+-------------------------------------------------- */
+@media (max-width: 768px) {
+  .bmi-button {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 1rem auto;
+    transform: none;
+  }
+
+  .waterfall {
+    width: 100%;
+    height: 350px;
+  }
+
+  .phase {
+    width: 120px;
+    height: 60px;
+    font-size: 0.8rem;
+  }
+
+  /* Adjusted mobile SDLC positions */
+  .req { top: 20px; left: 10px; }
+  .des { top: 100px; left: 120px; }
+  .dev { top: 180px; left: 230px; }
+  .test { top: 260px; left: 340px; }
+  .dep { top: 340px; left: 450px; }
+  .maint { top: 420px; left: 560px; }
+
+  .arrow1 { top: 70px; left: 100px; }
+  .arrow2 { top: 150px; left: 210px; }
+  .arrow3 { top: 230px; left: 320px; }
+  .arrow4 { top: 310px; left: 430px; }
+  .arrow5 { top: 390px; left: 540px; }
+}
+
+</style>
 
 
-    
-    @media (max-width: 768px) {
-      .bmi-button {
-        position: relative;
-        top: auto;
-        right: auto;
-        transform: none;
-        margin: 1rem auto;
-        display: inline-flex;
-      }
-      
-      .waterfall {
-        width: 100%;
-        height: 350px;
-      }
-      
-      .phase {
-        width: 120px;
-        height: 60px;
-        font-size: 0.8rem;
-      }
-      
-      .req { top: 20px; left: 10px; }
-      .des { top: 100px; left: 120px; }
-      .dev { top: 180px; left: 230px; }
-      .test { top: 260px; left: 340px; }
-      .dep { top: 340px; left: 450px; }
-      .maint { top: 420px; left: 560px; }
 
-      .arrow1 { top: 70px; left: 100px; transform: rotate(30deg); }
-      .arrow2 { top: 150px; left: 210px; transform: rotate(30deg); }
-      .arrow3 { top: 230px; left: 320px; transform: rotate(30deg); }
-      .arrow4 { top: 310px; left: 430px; transform: rotate(30deg); }
-      .arrow5 { top: 390px; left: 540px; transform: rotate(30deg); }
-    }
-  </style>
+
+
+
+
+
+
+
+
+
 </head>
 <body>
 
@@ -286,6 +276,7 @@
 
 </body>
 </html>
+
 
 
 
