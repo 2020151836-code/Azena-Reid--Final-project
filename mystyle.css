@@ -632,32 +632,3 @@ INSERTT TODAY HERE 26/11
 }
 
 
-/* Floating sidebar container */
-.sidebar {
-  position: fixed;
-  top: 100px;    /* move up/down */
-  right: 40px;
-  z-index: 9999;
-}
-
-/* Buttons match each other */
-.sidebar button {
-  display: block;
-  width: 200px;
-  padding: 12px 20px;
-  margin-bottom: 12px;
-  border-radius: 30px;
-  background: #1e90ff;
-  color: white;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  text-align: center;
-  transition: 0.2s;
-}
-
-.sidebar button:hover {
-  background: #1c7ed6;
-}
-
