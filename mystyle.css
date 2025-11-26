@@ -107,6 +107,36 @@ body {
   margin-bottom: 60px;
 }
 
+
+/* Shared style for all buttons */
+.bmi-button,
+.project-button {
+  display: block;
+  width: 200px;
+  padding: 12px 20px;
+  margin-bottom: 12px;
+  border-radius: 30px;
+  background: #1e90ff;
+  color: white;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: 0.2s;
+}
+
+.bmi-button:hover,
+.project-button:hover {
+  background: #1c7ed6;
+}
+
+/* OPTIONAL: Align the icon inside BMI button */
+.bmi-button i {
+  margin-right: 10px;
+}
+
 .quote blockquote {
   font-size: 1.8rem;
   font-style: italic;
@@ -600,4 +630,5 @@ INSERTT TODAY HERE 26/11
   gap: 10px;
   transform: translateY(-50%);
 }
+
 
