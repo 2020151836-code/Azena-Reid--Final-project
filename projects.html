@@ -9,28 +9,72 @@
 <style>
 
 /* --------------------------------------------------
-   SDLC DIAGRAM
+   PROJECT BUTTON GRID (NEW TOP LAYOUT)
+-------------------------------------------------- */
+#project-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 buttons per row */
+  gap: 15px; /* Spacing between buttons */
+  justify-content: center;
+  margin: 30px auto 50px auto; /* Center it and add vertical space */
+  max-width: 1000px; /* Limit the width of the grid */
+  padding: 0 20px;
+}
+
+.project-button {
+  width: 100%; /* Make buttons fill the grid cell */
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Specific styling for the BMI calculator button */
+.project-button.bmi-calc {
+  background: #f1c40f; /* Make BMI button stand out */
+}
+
+.project-button:hover {
+  background: #E056FD;
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------
+   SDLC DIAGRAM (RESIZED FOR BOTTOM)
 -------------------------------------------------- */
 .sdlc-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0;
+  margin: 0; /* Remove top/bottom margin */
+  padding-bottom: 20px;
+  transform: scale(0.8); /* Scale the whole container down */
+  transform-origin: top center; /* Ensure scaling is centered */
 }
 
 .waterfall {
   position: relative;
-  width: 700px;
-  height: 400px;
+  width: 600px; /* Reduced width */
+  height: 300px; /* Reduced height */
 }
 
-/* SDLC Phase Boxes */
+/* SDLC Phase Boxes (Adjusted size/font) */
 .phase {
   position: absolute;
-  width: 150px;
-  height: 70px;
+  width: 100px; /* Reduced width */
+  height: 50px; /* Reduced height */
   border: 3px solid #ccc;
-  border-radius: 20px;
+  border-radius: 15px; /* Slightly smaller radius */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +83,7 @@
   backdrop-filter: blur(5px);
   opacity: 0.3;
   color: transparent;
-  font-size: 0.9rem;
+  font-size: 0.75rem; /* Smaller font */
   transition: all 0.8s ease;
 }
 
@@ -48,13 +92,13 @@
   color: white;
   border-color: #0984e3;
   background: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 25px rgba(9,132,227,0.6);
+  box-shadow: 0 0 15px rgba(9,132,227,0.6); /* Smaller glow */
 }
 
-/* SDLC Arrow Lines */
+/* SDLC Arrow Lines (Adjusted size) */
 .arrow {
   position: absolute;
-  width: 80px;
+  width: 55px; /* Reduced length */
   height: 2px;
   background: #ccc;
   transition: background 0.6s ease;
@@ -62,153 +106,50 @@
 
 .arrow.active {
   background: #0984e3;
-  box-shadow: 0 0 10px rgba(9,132,227,0.8);
+  box-shadow: 0 0 5px rgba(9,132,227,0.8); /* Smaller glow */
 }
 
-/* SDLC Positioning */
-.req { top: 30px; left: 50px; }
-.des { top: 120px; left: 170px; }
-.dev { top: 210px; left: 290px; }
-.test { top: 300px; left: 410px; }
-.dep { top: 390px; left: 530px; }
-.maint { top: 480px; left: 650px; }
+/* SDLC Positioning (ADJUSTED FOR SMALLER WATERFALL) */
+.req { top: 20px; left: 50px; }
+.des { top: 70px; left: 130px; }
+.dev { top: 120px; left: 210px; }
+.test { top: 170px; left: 290px; }
+.dep { top: 220px; left: 370px; }
+.maint { top: 270px; left: 450px; }
 
-/* Arrow Lines */
-.arrow1 { top: 80px; left: 180px; transform: rotate(30deg); }
-.arrow2 { top: 170px; left: 300px; transform: rotate(30deg); }
-.arrow3 { top: 260px; left: 420px; transform: rotate(30deg); }
-.arrow4 { top: 350px; left: 540px; transform: rotate(30deg); }
-.arrow5 { top: 440px; left: 660px; transform: rotate(30deg); }
+/* Arrow Lines (ADJUSTED FOR SMALLER WATERFALL) */
+.arrow1 { top: 55px; left: 125px; transform: rotate(30deg); width: 40px; }
+.arrow2 { top: 105px; left: 205px; transform: rotate(30deg); width: 40px; }
+.arrow3 { top: 155px; left: 285px; transform: rotate(30deg); width: 40px; }
+.arrow4 { top: 205px; left: 365px; transform: rotate(30deg); width: 40px; }
+.arrow5 { top: 255px; left: 445px; transform: rotate(30deg); width: 40px; }
+
 
 /* --------------------------------------------------
-   RIGHT-SIDE UI BUTTONS (BMI + PROJECT BUTTON LIST)
--------------------------------------------------- */
-
-/* Project Button List (Under BMI) */
-#project-buttons {
-  position: fixed;
-  top: 180px;
-  right: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 8x;
-  z-index: 9999;
-}
-
-.project-button {
-  width: 130px;
-  background: #3498db;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 6px 12px;
-  font-size: 0.75rem;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.project-button:hover {
-  background: #E056FD;
-  transform: scale(1.05);
-}
-
-  
-/* BMI Button */
-.bmi-button {
-  position: fixed;
-  top: 100px;
-  right: 40px;
-  background: #3498db;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  padding: 8px 12px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.bmi-button:hover {
-  background: #E056FD;
-  transform: scale(1.05);
-}
-
-.bmi-button i {
-  font-size: 1rem;
-}
-
-/* --------------------------------------------------
-   RESPONSIVE (MOBILE)
+   RESPONSIVE (MOBILE) - Adjust the grid for smaller screens
 -------------------------------------------------- */
 @media (max-width: 768px) {
-  .bmi-button {
-    position: relative;
-    top: auto;
-    right: auto;
-    margin: 1rem auto;
-    transform: none;
+  #project-grid {
+    grid-template-columns: repeat(3, 1fr); /* Change to 3 buttons per row on mobile */
+    gap: 10px;
+    margin: 20px auto 30px auto;
   }
-
-  .waterfall {
-    width: 100%;
-    height: 350px;
+  
+  .sdlc-container {
+      transform: scale(0.65); /* Scale the SDLC down even more for mobile */
+      transform-origin: top center;
   }
-
-  .phase {
-    width: 120px;
-    height: 60px;
-    font-size: 0.8rem;
-  }
-
-  /* Adjusted mobile SDLC positions */
-  .req { top: 20px; left: 10px; }
-  .des { top: 100px; left: 120px; }
-  .dev { top: 180px; left: 230px; }
-  .test { top: 260px; left: 340px; }
-  .dep { top: 340px; left: 450px; }
-  .maint { top: 420px; left: 560px; }
-
-  .arrow1 { top: 70px; left: 100px; }
-  .arrow2 { top: 150px; left: 210px; }
-  .arrow3 { top: 230px; left: 320px; }
-  .arrow4 { top: 310px; left: 430px; }
-  .arrow5 { top: 390px; left: 540px; }
 }
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
 </head>
 <body>
 
-  <!-- 🎥 Animated Background -->
   <video autoplay muted loop id="bg-video">
     <source src="light.mp4" type="video/mp4">
   </video>
 
   <div class="subpage-layout content">
-    <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <h2>Fundamentals of Computing</h2>
       <nav class="sidebar-nav">
@@ -221,67 +162,57 @@
       </nav>
     </aside>
 
-    <!-- Main Content Area -->
     <main class="main-content fade-in">
       <header class="content-header">
-        <h1>Software Life Cycle</h1>
-        <p>A systematic process for building software that ensures quality and correctness.</p>
+        <h1>PROJECTS</h1>
+        <p>Check out the various animated projects below</p>
       </header>
-
-          <div class="sdlc-container">
-            <div class="waterfall">
-              <div class="phase req">Planning</div>
-              <div class="arrow arrow1"></div>
-              <div class="phase des">Requirements</div>
-              <div class="arrow arrow2"></div>
-              <div class="phase dev">Design</div>
-              <div class="arrow arrow3"></div>
-              <div class="phase test">Implementation</div>
-              <div class="arrow arrow4"></div>
-              <div class="phase dep">Testing & Integration</div>
-              <div class="arrow arrow5"></div>
-              <div class="phase maint">Maintenance</div>
-            </div>
-          </div>
-        </div>
+      
+      <div id="project-grid">
+        <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/NOT-Gate/'">NOT Gate</button>
+        <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/AND-Gate/'">AND Gate</button>
+        <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/XOR-Gate/'">XOR Gate</button>
+        <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/OR-Gate/'">OR Gate</button>
+        <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/FLIP-FLOP/'">Flip-Flop</button>
+        <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/binarytohex.html'">Binary → Hex</button>
+        <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/ascii.html'">ASCII Converter</button>
+        <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/unicode.html'">UNICODE</button>
+        <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/MLinstructions.html'">Machine Lang</button>
+        <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/SDLC.html'">SDLC</button>
+        <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/Belize.html'">Belize Game</button>
+        <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/Arithmetic.html'">Arithmetic</button>
+        <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/Networks.html'">Networks</button>
+        <button class="project-button bmi-calc" onclick="window.location.href='BMI.html'"><i class="fas fa-calculator"></i> BMI Calculator</button>
       </div>
 
-     
+      <header class="content-header" style="margin-top: 50px;">
+        <h2>Software Development Life Cycle (SDLC)</h2>
+        <p>Waterfall Model</p>
+      </header>
 
-<div id="project-buttons">
-  <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/NOT-Gate/'">NOT Gate</button>
-  <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/AND-Gate/'">AND Gate</button>
-  <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/XOR-Gate/'">XOR Gate</button>
-  <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/OR-Gate/'">OR Gate</button>
-  <button class="project-button" onclick="window.location.href='https://dmartinez-codes.github.io/FLIP-FLOP/'">Flip-Flop</button>
-  <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/binarytohex.html'">Binary → Hex</button>
-  <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/ascii.html'">ASCII Converter</button>
-  <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/unicode.html'">UNICODE</button>
-  <button class="project-button" onclick="window.location.href='https://kryanbz.github.io/FoC/MLinstructions.html'">Machine Lang</button>
-   <button class="bmi-button" onclick="window.location.href='BMI.html'">BMI calculator</button>
-  
-</div>
-
-   
-
+      <div class="sdlc-container">
+        <div class="waterfall">
+          <div class="phase req">Planning</div>
+          <div class="arrow arrow1"></div>
+          <div class="phase des">Requirements</div>
+          <div class="arrow arrow2"></div>
+          <div class="phase dev">Design</div>
+          <div class="arrow arrow3"></div>
+          <div class="phase test">Implementation</div>
+          <div class="arrow arrow4"></div>
+          <div class="phase dep">Testing & Integration</div>
+          <div class="arrow arrow5"></div>
+          <div class="phase maint">Maintenance</div>
+        </div>
+      </div>
+      
       <footer class="subpage-footer">
         © Powered by UB — 2025
       </footer>
     </main>
   </div>
 
-
-   <script src="sdlc-animation.js"></script>
-
+  <script src="sdlc-animation.js"></script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
