@@ -631,4 +631,42 @@ INSERTT TODAY HERE 26/11
   transform: translateY(-50%);
 }
 
+/* About text spacing */
+.about-section {
+  margin-bottom: 30px;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #eaeaea;
+}
+
+/* Photo container at bottom */
+.photo-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* Modern rounded photo */
+.profile-photo {
+  width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.55);
+}
+
+/* Headings modern style */
+.about-section h2 {
+  margin-top: 25px;
+  color: #ffffff;
+  font-weight: 600;
+  border-left: 4px solid #6ab3ff;
+  padding-left: 10px;
+}
+
 
